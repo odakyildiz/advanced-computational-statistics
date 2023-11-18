@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chapter 1 - Introduction &#8212; Stochastic Simulation</title>
+    <title>Lecture 1 - Introduction &#8212; Stochastic Simulation</title>
   
   
   
@@ -67,6 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://akyildiz.me/teaching/stsim/Lecture-1/intro.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lecture 1 - Sampling via Inversion" href="exact-sampling.html" />
     <link rel="prev" title="Slides" href="../slides.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -160,7 +161,11 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../slides.html">Slides</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 1 - Introduction</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Lecture 1 - Introduction</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="exact-sampling.html">Lecture 1 - Sampling via Inversion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rejection-sampling.html">Lecture 1 - Sampling via Rejection</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
@@ -297,7 +302,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Chapter 1 - Introduction</h1>
+    <h1>Lecture 1 - Introduction</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -320,8 +325,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="chapter-1-introduction">
-<h1>Chapter 1 - Introduction<a class="headerlink" href="#chapter-1-introduction" title="Permalink to this heading">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="lecture-1-introduction">
+<h1>Lecture 1 - Introduction<a class="headerlink" href="#lecture-1-introduction" title="Permalink to this heading">#</a></h1>
 <p>To keep things simple, we will only use the following Python libraries:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">numpy</span></code> for numerical operations</p></li>
@@ -479,12 +484,14 @@ x^2 + y^2 \leq 1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11ffbf8e0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1208cdbb0&gt;]
 </pre></div>
 </div>
 <img alt="../_images/f8767ba9a4fd8d7deeb3205a536e9039aaf22d923f850aa4023d52872a7a63b1.png" src="../_images/f8767ba9a4fd8d7deeb3205a536e9039aaf22d923f850aa4023d52872a7a63b1.png" />
 </div>
 </div>
+</div>
+<div class="toctree-wrapper compound">
 </div>
 </div>
 
@@ -527,6 +534,15 @@ x^2 + y^2 \leq 1
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Slides</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="exact-sampling.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lecture 1 - Sampling via Inversion</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div></div>
   
