@@ -7,7 +7,8 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Lecture 1 - Sampling via Rejection &#8212; Stochastic Simulation</title>
   
   
@@ -18,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -37,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -78,6 +80,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -273,10 +284,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -284,7 +295,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -313,7 +324,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="lecture-1-sampling-via-rejection">
+  <section class="tex2jax_ignore mathjax_ignore" id="lecture-1-sampling-via-rejection">
 <h1>Lecture 1 - Sampling via Rejection<a class="headerlink" href="#lecture-1-sampling-via-rejection" title="Permalink to this heading">#</a></h1>
 <p>Recall that in the lecture, we discussed rejection sampling for two different cases for a <span class="math notranslate nohighlight">\(\text{Beta}(2,2)\)</span> density</p>
 <ul class="simple">
@@ -367,273 +378,12 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;$p(x)$&quot;</span><span class="p">,</span> <span class="s2">&quot;$M_{</span><span class="se">\\</span><span class="s2">text</span><span class="si">{gauss}</span><span class="s2">} q(x)$&quot;</span><span class="p">,</span> <span class="s2">&quot;$M_{</span><span class="se">\\</span><span class="s2">text</span><span class="si">{box}</span><span class="s2">} q(x)$&quot;</span><span class="p">])</span>
-<span class="c1"># plt.savefig(&quot;beta_pdf_gauss.png&quot;, bbox_inches=&#39;tight&#39;, dpi=300)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="nn">File ~/miniconda3/lib/python3.9/site-packages/IPython/core/formatters.py:340,</span> in <span class="ni">BaseFormatter.__call__</span><span class="nt">(self, obj)</span>
-<span class="g g-Whitespace">    </span><span class="mi">338</span>     <span class="k">pass</span>
-<span class="g g-Whitespace">    </span><span class="mi">339</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">340</span>     <span class="k">return</span> <span class="n">printer</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">341</span> <span class="c1"># Finally look for special method names</span>
-<span class="g g-Whitespace">    </span><span class="mi">342</span> <span class="n">method</span> <span class="o">=</span> <span class="n">get_real_method</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_method</span><span class="p">)</span>
-
-<span class="nn">File ~/miniconda3/lib/python3.9/site-packages/IPython/core/pylabtools.py:152,</span> in <span class="ni">print_figure</span><span class="nt">(fig, fmt, bbox_inches, base64, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">149</span>     <span class="kn">from</span> <span class="nn">matplotlib.backend_bases</span> <span class="kn">import</span> <span class="n">FigureCanvasBase</span>
-<span class="g g-Whitespace">    </span><span class="mi">150</span>     <span class="n">FigureCanvasBase</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">152</span> <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">print_figure</span><span class="p">(</span><span class="n">bytes_io</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">153</span> <span class="n">data</span> <span class="o">=</span> <span class="n">bytes_io</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">154</span> <span class="k">if</span> <span class="n">fmt</span> <span class="o">==</span> <span class="s1">&#39;svg&#39;</span><span class="p">:</span>
-
-<span class="nn">File ~/miniconda3/lib/python3.9/site-packages/matplotlib/backend_bases.py:2342,</span> in <span class="ni">FigureCanvasBase.print_figure</span><span class="nt">(self, filename, dpi, facecolor, edgecolor, orientation, format, bbox_inches, pad_inches, bbox_extra_artists, backend, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2336</span>     <span class="n">renderer</span> <span class="o">=</span> <span class="n">_get_renderer</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">2337</span>         <span class="bp">self</span><span class="o">.</span><span class="n">figure</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2338</span>         <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">2339</span>             <span class="n">print_method</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="n">orientation</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2340</span>     <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2341</span>     <span class="k">with</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="s2">&quot;_draw_disabled&quot;</span><span class="p">,</span> <span class="n">nullcontext</span><span class="p">)():</span>
-<span class="ne">-&gt; </span><span class="mi">2342</span>         <span class="bp">self</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2344</span> <span class="k">if</span> <span class="n">bbox_inches</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2345</span>     <span class="k">if</span> <span class="n">bbox_inches</span> <span class="o">==</span> <span class="s2">&quot;tight&quot;</span><span class="p">:</span>
-
-<span class="nn">File ~/miniconda3/lib/python3.9/site-packages/matplotlib/artist.py:95,</span> in <span class="ni">_finalize_rasterization.&lt;locals&gt;.draw_wrapper</span><span class="nt">(artist, renderer, *args, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">93</span> <span class="nd">@wraps</span><span class="p">(</span><span class="n">draw</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">94</span> <span class="k">def</span> <span class="nf">draw_wrapper</span><span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">renderer</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">95</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">draw</span><span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">renderer</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">96</span>     <span class="k">if</span> <span class="n">renderer</span><span class="o">.</span><span class="n">_rasterizing</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">97</span>         <span class="n">renderer</span><span class="o">.</span><span class="n">stop_rasterizing</span><span class="p">()</span>
-
-<span class="nn">File ~/miniconda3/lib/python3.9/site-packages/matplotlib/artist.py:72,</span> in <span class="ni">allow_rasterization.&lt;locals&gt;.draw_wrapper</span><span class="nt">(artist, renderer)</span>
-<span class="g g-Whitespace">     </span><span class="mi">69</span>     <span class="k">if</span> <span class="n">artist</span><span class="o">.</span><span class="n">get_agg_filter</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">70</span>         <span class="n">renderer</span><span class="o">.</span><span class="n">start_filter</span><span class="p">()</span>
-<span class="ne">---&gt; </span><span class="mi">72</span>     <span class="k">return</span> <span class="n">draw</span><span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">renderer</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">73</span> <span class="k">finally</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">74</span>     <span class="k">if</span> <span class="n">artist</span><span class="o">.</span><span class="n">get_agg_filter</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-
-<span class="nn">File ~/miniconda3/lib/python3.9/site-packages/matplotlib/figure.py:3175,</span> in <span class="ni">Figure.draw</span><span class="nt">(self, renderer)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3172</span>         <span class="c1"># ValueError can occur when resizing a window.</span>
-<span class="g g-Whitespace">   </span><span class="mi">3174</span> <span class="bp">self</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">3175</span> <span class="n">mimage</span><span class="o">.</span><span class="n">_draw_list_compositing_images</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">3176</span>     <span class="n">renderer</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">artists</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">suppressComposite</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3178</span> <span class="k">for</span> <span class="n">sfig</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">subfigs</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">3179</span>     <span class="n">sfig</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
-
-<span class="nn">File ~/miniconda3/lib/python3.9/site-packages/matplotlib/image.py:131,</span> in <span class="ni">_draw_list_compositing_images</span><span class="nt">(renderer, parent, artists, suppress_composite)</span>
-<span class="g g-Whitespace">    </span><span class="mi">129</span> <span class="k">if</span> <span class="n">not_composite</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">has_images</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">130</span>     <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">artists</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">131</span>         <span class="n">a</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">132</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">133</span>     <span class="c1"># Composite any adjacent images together</span>
-<span class="g g-Whitespace">    </span><span class="mi">134</span>     <span class="n">image_group</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="nn">File ~/miniconda3/lib/python3.9/site-packages/matplotlib/artist.py:72,</span> in <span class="ni">allow_rasterization.&lt;locals&gt;.draw_wrapper</span><span class="nt">(artist, renderer)</span>
-<span class="g g-Whitespace">     </span><span class="mi">69</span>     <span class="k">if</span> <span class="n">artist</span><span class="o">.</span><span class="n">get_agg_filter</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">70</span>         <span class="n">renderer</span><span class="o">.</span><span class="n">start_filter</span><span class="p">()</span>
-<span class="ne">---&gt; </span><span class="mi">72</span>     <span class="k">return</span> <span class="n">draw</span><span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">renderer</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">73</span> <span class="k">finally</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">74</span>     <span class="k">if</span> <span class="n">artist</span><span class="o">.</span><span class="n">get_agg_filter</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-
-<span class="nn">File ~/miniconda3/lib/python3.9/site-packages/matplotlib/axes/_base.py:3064,</span> in <span class="ni">_AxesBase.draw</span><span class="nt">(self, renderer)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3061</span> <span class="k">if</span> <span class="n">artists_rasterized</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">3062</span>     <span class="n">_draw_rasterized</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">figure</span><span class="p">,</span> <span class="n">artists_rasterized</span><span class="p">,</span> <span class="n">renderer</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">3064</span> <span class="n">mimage</span><span class="o">.</span><span class="n">_draw_list_compositing_images</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">3065</span>     <span class="n">renderer</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">artists</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">suppressComposite</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3067</span> <span class="n">renderer</span><span class="o">.</span><span class="n">close_group</span><span class="p">(</span><span class="s1">&#39;axes&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3068</span> <span class="bp">self</span><span class="o">.</span><span class="n">stale</span> <span class="o">=</span> <span class="kc">False</span>
-
-<span class="nn">File ~/miniconda3/lib/python3.9/site-packages/matplotlib/image.py:131,</span> in <span class="ni">_draw_list_compositing_images</span><span class="nt">(renderer, parent, artists, suppress_composite)</span>
-<span class="g g-Whitespace">    </span><span class="mi">129</span> <span class="k">if</span> <span class="n">not_composite</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">has_images</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">130</span>     <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">artists</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">131</span>         <span class="n">a</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">132</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">133</span>     <span class="c1"># Composite any adjacent images together</span>
-<span class="g g-Whitespace">    </span><span class="mi">134</span>     <span class="n">image_group</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="nn">File ~/miniconda3/lib/python3.9/site-packages/matplotlib/artist.py:72,</span> in <span class="ni">allow_rasterization.&lt;locals&gt;.draw_wrapper</span><span class="nt">(artist, renderer)</span>
-<span class="g g-Whitespace">     </span><span class="mi">69</span>     <span class="k">if</span> <span class="n">artist</span><span class="o">.</span><span class="n">get_agg_filter</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">70</span>         <span class="n">renderer</span><span class="o">.</span><span class="n">start_filter</span><span class="p">()</span>
-<span class="ne">---&gt; </span><span class="mi">72</span>     <span class="k">return</span> <span class="n">draw</span><span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">renderer</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">73</span> <span class="k">finally</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">74</span>     <span class="k">if</span> <span class="n">artist</span><span class="o">.</span><span class="n">get_agg_filter</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-
-<span class="nn">File ~/miniconda3/lib/python3.9/site-packages/matplotlib/legend.py:726,</span> in <span class="ni">Legend.draw</span><span class="nt">(self, renderer)</span>
-<span class="g g-Whitespace">    </span><span class="mi">722</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_legend_box</span><span class="o">.</span><span class="n">set_width</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_bbox_to_anchor</span><span class="p">()</span><span class="o">.</span><span class="n">width</span> <span class="o">-</span> <span class="n">pad</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">724</span> <span class="c1"># update the location and size of the legend. This needs to</span>
-<span class="g g-Whitespace">    </span><span class="mi">725</span> <span class="c1"># be done in any case to clip the figure right.</span>
-<span class="ne">--&gt; </span><span class="mi">726</span> <span class="n">bbox</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_legend_box</span><span class="o">.</span><span class="n">get_window_extent</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">727</span> <span class="bp">self</span><span class="o">.</span><span class="n">legendPatch</span><span class="o">.</span><span class="n">set_bounds</span><span class="p">(</span><span class="n">bbox</span><span class="o">.</span><span class="n">bounds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">728</span> <span class="bp">self</span><span class="o">.</span><span class="n">legendPatch</span><span class="o">.</span><span class="n">set_mutation_scale</span><span class="p">(</span><span class="n">fontsize</span><span class="p">)</span>
-
-<span class="nn">File ~/miniconda3/lib/python3.9/site-packages/matplotlib/offsetbox.py:400,</span> in <span class="ni">OffsetBox.get_window_extent</span><span class="nt">(self, renderer)</span>
-<span class="g g-Whitespace">    </span><span class="mi">398</span> <span class="k">if</span> <span class="n">renderer</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">399</span>     <span class="n">renderer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">_get_renderer</span><span class="p">()</span>
-<span class="ne">--&gt; </span><span class="mi">400</span> <span class="n">bbox</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_bbox</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">401</span> <span class="k">try</span><span class="p">:</span>  <span class="c1"># Some subclasses redefine get_offset to take no args.</span>
-<span class="g g-Whitespace">    </span><span class="mi">402</span>     <span class="n">px</span><span class="p">,</span> <span class="n">py</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_offset</span><span class="p">(</span><span class="n">bbox</span><span class="p">,</span> <span class="n">renderer</span><span class="p">)</span>
-
-<span class="nn">File ~/miniconda3/lib/python3.9/site-packages/matplotlib/offsetbox.py:367,</span> in <span class="ni">OffsetBox.get_bbox</span><span class="nt">(self, renderer)</span>
-<span class="g g-Whitespace">    </span><span class="mi">365</span> <span class="k">def</span> <span class="nf">get_bbox</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">renderer</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">366</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Return the bbox of the offsetbox, ignoring parent offsets.&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">367</span>     <span class="n">bbox</span><span class="p">,</span> <span class="n">offsets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_bbox_and_child_offsets</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">368</span>     <span class="k">return</span> <span class="n">bbox</span>
-
-<span class="nn">File ~/miniconda3/lib/python3.9/site-packages/matplotlib/offsetbox.py:485,</span> in <span class="ni">VPacker._get_bbox_and_child_offsets</span><span class="nt">(self, renderer)</span>
-<span class="g g-Whitespace">    </span><span class="mi">482</span>         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">PackerBase</span><span class="p">)</span> <span class="ow">and</span> <span class="n">c</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;expand&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">483</span>             <span class="n">c</span><span class="o">.</span><span class="n">set_width</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">485</span> <span class="n">bboxes</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">get_bbox</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_visible_children</span><span class="p">()]</span>
-<span class="g g-Whitespace">    </span><span class="mi">486</span> <span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">),</span> <span class="n">xoffsets</span> <span class="o">=</span> <span class="n">_get_aligned_offsets</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">487</span>     <span class="p">[</span><span class="n">bbox</span><span class="o">.</span><span class="n">intervalx</span> <span class="k">for</span> <span class="n">bbox</span> <span class="ow">in</span> <span class="n">bboxes</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">align</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">488</span> <span class="n">height</span><span class="p">,</span> <span class="n">yoffsets</span> <span class="o">=</span> <span class="n">_get_packed_offsets</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">489</span>     <span class="p">[</span><span class="n">bbox</span><span class="o">.</span><span class="n">height</span> <span class="k">for</span> <span class="n">bbox</span> <span class="ow">in</span> <span class="n">bboxes</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">sep</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
-
-<span class="nn">File ~/miniconda3/lib/python3.9/site-packages/matplotlib/offsetbox.py:485,</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
-<span class="g g-Whitespace">    </span><span class="mi">482</span>         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">PackerBase</span><span class="p">)</span> <span class="ow">and</span> <span class="n">c</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;expand&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">483</span>             <span class="n">c</span><span class="o">.</span><span class="n">set_width</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">485</span> <span class="n">bboxes</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">get_bbox</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_visible_children</span><span class="p">()]</span>
-<span class="g g-Whitespace">    </span><span class="mi">486</span> <span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">),</span> <span class="n">xoffsets</span> <span class="o">=</span> <span class="n">_get_aligned_offsets</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">487</span>     <span class="p">[</span><span class="n">bbox</span><span class="o">.</span><span class="n">intervalx</span> <span class="k">for</span> <span class="n">bbox</span> <span class="ow">in</span> <span class="n">bboxes</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">align</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">488</span> <span class="n">height</span><span class="p">,</span> <span class="n">yoffsets</span> <span class="o">=</span> <span class="n">_get_packed_offsets</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">489</span>     <span class="p">[</span><span class="n">bbox</span><span class="o">.</span><span class="n">height</span> <span class="k">for</span> <span class="n">bbox</span> <span class="ow">in</span> <span class="n">bboxes</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">sep</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
-
-<span class="nn">File ~/miniconda3/lib/python3.9/site-packages/matplotlib/offsetbox.py:367,</span> in <span class="ni">OffsetBox.get_bbox</span><span class="nt">(self, renderer)</span>
-<span class="g g-Whitespace">    </span><span class="mi">365</span> <span class="k">def</span> <span class="nf">get_bbox</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">renderer</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">366</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Return the bbox of the offsetbox, ignoring parent offsets.&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">367</span>     <span class="n">bbox</span><span class="p">,</span> <span class="n">offsets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_bbox_and_child_offsets</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">368</span>     <span class="k">return</span> <span class="n">bbox</span>
-
-<span class="nn">File ~/miniconda3/lib/python3.9/site-packages/matplotlib/offsetbox.py:512,</span> in <span class="ni">HPacker._get_bbox_and_child_offsets</span><span class="nt">(self, renderer)</span>
-<span class="g g-Whitespace">    </span><span class="mi">509</span> <span class="n">pad</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pad</span> <span class="o">*</span> <span class="n">dpicor</span>
-<span class="g g-Whitespace">    </span><span class="mi">510</span> <span class="n">sep</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sep</span> <span class="o">*</span> <span class="n">dpicor</span>
-<span class="ne">--&gt; </span><span class="mi">512</span> <span class="n">bboxes</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">get_bbox</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_visible_children</span><span class="p">()]</span>
-<span class="g g-Whitespace">    </span><span class="mi">513</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">bboxes</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">514</span>     <span class="k">return</span> <span class="n">Bbox</span><span class="o">.</span><span class="n">from_bounds</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">padded</span><span class="p">(</span><span class="n">pad</span><span class="p">),</span> <span class="p">[]</span>
-
-<span class="nn">File ~/miniconda3/lib/python3.9/site-packages/matplotlib/offsetbox.py:512,</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
-<span class="g g-Whitespace">    </span><span class="mi">509</span> <span class="n">pad</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pad</span> <span class="o">*</span> <span class="n">dpicor</span>
-<span class="g g-Whitespace">    </span><span class="mi">510</span> <span class="n">sep</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sep</span> <span class="o">*</span> <span class="n">dpicor</span>
-<span class="ne">--&gt; </span><span class="mi">512</span> <span class="n">bboxes</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">get_bbox</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_visible_children</span><span class="p">()]</span>
-<span class="g g-Whitespace">    </span><span class="mi">513</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">bboxes</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">514</span>     <span class="k">return</span> <span class="n">Bbox</span><span class="o">.</span><span class="n">from_bounds</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">padded</span><span class="p">(</span><span class="n">pad</span><span class="p">),</span> <span class="p">[]</span>
-
-<span class="nn">File ~/miniconda3/lib/python3.9/site-packages/matplotlib/offsetbox.py:367,</span> in <span class="ni">OffsetBox.get_bbox</span><span class="nt">(self, renderer)</span>
-<span class="g g-Whitespace">    </span><span class="mi">365</span> <span class="k">def</span> <span class="nf">get_bbox</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">renderer</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">366</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Return the bbox of the offsetbox, ignoring parent offsets.&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">367</span>     <span class="n">bbox</span><span class="p">,</span> <span class="n">offsets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_bbox_and_child_offsets</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">368</span>     <span class="k">return</span> <span class="n">bbox</span>
-
-<span class="nn">File ~/miniconda3/lib/python3.9/site-packages/matplotlib/offsetbox.py:485,</span> in <span class="ni">VPacker._get_bbox_and_child_offsets</span><span class="nt">(self, renderer)</span>
-<span class="g g-Whitespace">    </span><span class="mi">482</span>         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">PackerBase</span><span class="p">)</span> <span class="ow">and</span> <span class="n">c</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;expand&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">483</span>             <span class="n">c</span><span class="o">.</span><span class="n">set_width</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">485</span> <span class="n">bboxes</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">get_bbox</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_visible_children</span><span class="p">()]</span>
-<span class="g g-Whitespace">    </span><span class="mi">486</span> <span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">),</span> <span class="n">xoffsets</span> <span class="o">=</span> <span class="n">_get_aligned_offsets</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">487</span>     <span class="p">[</span><span class="n">bbox</span><span class="o">.</span><span class="n">intervalx</span> <span class="k">for</span> <span class="n">bbox</span> <span class="ow">in</span> <span class="n">bboxes</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">align</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">488</span> <span class="n">height</span><span class="p">,</span> <span class="n">yoffsets</span> <span class="o">=</span> <span class="n">_get_packed_offsets</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">489</span>     <span class="p">[</span><span class="n">bbox</span><span class="o">.</span><span class="n">height</span> <span class="k">for</span> <span class="n">bbox</span> <span class="ow">in</span> <span class="n">bboxes</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">sep</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
-
-<span class="nn">File ~/miniconda3/lib/python3.9/site-packages/matplotlib/offsetbox.py:485,</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
-<span class="g g-Whitespace">    </span><span class="mi">482</span>         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">PackerBase</span><span class="p">)</span> <span class="ow">and</span> <span class="n">c</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;expand&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">483</span>             <span class="n">c</span><span class="o">.</span><span class="n">set_width</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">485</span> <span class="n">bboxes</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">get_bbox</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_visible_children</span><span class="p">()]</span>
-<span class="g g-Whitespace">    </span><span class="mi">486</span> <span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">),</span> <span class="n">xoffsets</span> <span class="o">=</span> <span class="n">_get_aligned_offsets</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">487</span>     <span class="p">[</span><span class="n">bbox</span><span class="o">.</span><span class="n">intervalx</span> <span class="k">for</span> <span class="n">bbox</span> <span class="ow">in</span> <span class="n">bboxes</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">align</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">488</span> <span class="n">height</span><span class="p">,</span> <span class="n">yoffsets</span> <span class="o">=</span> <span class="n">_get_packed_offsets</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">489</span>     <span class="p">[</span><span class="n">bbox</span><span class="o">.</span><span class="n">height</span> <span class="k">for</span> <span class="n">bbox</span> <span class="ow">in</span> <span class="n">bboxes</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">sep</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
-
-<span class="nn">File ~/miniconda3/lib/python3.9/site-packages/matplotlib/offsetbox.py:367,</span> in <span class="ni">OffsetBox.get_bbox</span><span class="nt">(self, renderer)</span>
-<span class="g g-Whitespace">    </span><span class="mi">365</span> <span class="k">def</span> <span class="nf">get_bbox</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">renderer</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">366</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Return the bbox of the offsetbox, ignoring parent offsets.&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">367</span>     <span class="n">bbox</span><span class="p">,</span> <span class="n">offsets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_bbox_and_child_offsets</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">368</span>     <span class="k">return</span> <span class="n">bbox</span>
-
-<span class="nn">File ~/miniconda3/lib/python3.9/site-packages/matplotlib/offsetbox.py:512,</span> in <span class="ni">HPacker._get_bbox_and_child_offsets</span><span class="nt">(self, renderer)</span>
-<span class="g g-Whitespace">    </span><span class="mi">509</span> <span class="n">pad</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pad</span> <span class="o">*</span> <span class="n">dpicor</span>
-<span class="g g-Whitespace">    </span><span class="mi">510</span> <span class="n">sep</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sep</span> <span class="o">*</span> <span class="n">dpicor</span>
-<span class="ne">--&gt; </span><span class="mi">512</span> <span class="n">bboxes</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">get_bbox</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_visible_children</span><span class="p">()]</span>
-<span class="g g-Whitespace">    </span><span class="mi">513</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">bboxes</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">514</span>     <span class="k">return</span> <span class="n">Bbox</span><span class="o">.</span><span class="n">from_bounds</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">padded</span><span class="p">(</span><span class="n">pad</span><span class="p">),</span> <span class="p">[]</span>
-
-<span class="nn">File ~/miniconda3/lib/python3.9/site-packages/matplotlib/offsetbox.py:512,</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
-<span class="g g-Whitespace">    </span><span class="mi">509</span> <span class="n">pad</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pad</span> <span class="o">*</span> <span class="n">dpicor</span>
-<span class="g g-Whitespace">    </span><span class="mi">510</span> <span class="n">sep</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sep</span> <span class="o">*</span> <span class="n">dpicor</span>
-<span class="ne">--&gt; </span><span class="mi">512</span> <span class="n">bboxes</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">get_bbox</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_visible_children</span><span class="p">()]</span>
-<span class="g g-Whitespace">    </span><span class="mi">513</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">bboxes</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">514</span>     <span class="k">return</span> <span class="n">Bbox</span><span class="o">.</span><span class="n">from_bounds</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">padded</span><span class="p">(</span><span class="n">pad</span><span class="p">),</span> <span class="p">[]</span>
-
-<span class="nn">File ~/miniconda3/lib/python3.9/site-packages/matplotlib/offsetbox.py:801,</span> in <span class="ni">TextArea.get_bbox</span><span class="nt">(self, renderer)</span>
-<span class="g g-Whitespace">    </span><span class="mi">796</span> <span class="k">def</span> <span class="nf">get_bbox</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">renderer</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">797</span>     <span class="n">_</span><span class="p">,</span> <span class="n">h_</span><span class="p">,</span> <span class="n">d_</span> <span class="o">=</span> <span class="n">renderer</span><span class="o">.</span><span class="n">get_text_width_height_descent</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">798</span>         <span class="s2">&quot;lp&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_text</span><span class="o">.</span><span class="n">_fontproperties</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">799</span>         <span class="n">ismath</span><span class="o">=</span><span class="s2">&quot;TeX&quot;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_text</span><span class="o">.</span><span class="n">get_usetex</span><span class="p">()</span> <span class="k">else</span> <span class="kc">False</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">801</span>     <span class="n">bbox</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="n">yd</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_text</span><span class="o">.</span><span class="n">_get_layout</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">802</span>     <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">bbox</span><span class="o">.</span><span class="n">size</span>
-<span class="g g-Whitespace">    </span><span class="mi">804</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_baseline_transform</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-
-<span class="nn">File ~/miniconda3/lib/python3.9/site-packages/matplotlib/text.py:386,</span> in <span class="ni">Text._get_layout</span><span class="nt">(self, renderer)</span>
-<span class="g g-Whitespace">    </span><span class="mi">384</span> <span class="n">clean_line</span><span class="p">,</span> <span class="n">ismath</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_preprocess_math</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">385</span> <span class="k">if</span> <span class="n">clean_line</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">386</span>     <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">_get_text_metrics_with_cache</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">387</span>         <span class="n">renderer</span><span class="p">,</span> <span class="n">clean_line</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fontproperties</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">388</span>         <span class="n">ismath</span><span class="o">=</span><span class="n">ismath</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">dpi</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">389</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">390</span>     <span class="n">w</span> <span class="o">=</span> <span class="n">h</span> <span class="o">=</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">0</span>
-
-<span class="nn">File ~/miniconda3/lib/python3.9/site-packages/matplotlib/text.py:97,</span> in <span class="ni">_get_text_metrics_with_cache</span><span class="nt">(renderer, text, fontprop, ismath, dpi)</span>
-<span class="g g-Whitespace">     </span><span class="mi">94</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Call ``renderer.get_text_width_height_descent``, caching the results.&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">95</span> <span class="c1"># Cached based on a copy of fontprop so that later in-place mutations of</span>
-<span class="g g-Whitespace">     </span><span class="mi">96</span> <span class="c1"># the passed-in argument do not mess up the cache.</span>
-<span class="ne">---&gt; </span><span class="mi">97</span> <span class="k">return</span> <span class="n">_get_text_metrics_with_cache_impl</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">98</span>     <span class="n">weakref</span><span class="o">.</span><span class="n">ref</span><span class="p">(</span><span class="n">renderer</span><span class="p">),</span> <span class="n">text</span><span class="p">,</span> <span class="n">fontprop</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">ismath</span><span class="p">,</span> <span class="n">dpi</span><span class="p">)</span>
-
-<span class="nn">File ~/miniconda3/lib/python3.9/site-packages/matplotlib/text.py:105,</span> in <span class="ni">_get_text_metrics_with_cache_impl</span><span class="nt">(renderer_ref, text, fontprop, ismath, dpi)</span>
-<span class="g g-Whitespace">    </span><span class="mi">101</span> <span class="nd">@functools</span><span class="o">.</span><span class="n">lru_cache</span><span class="p">(</span><span class="mi">4096</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">102</span> <span class="k">def</span> <span class="nf">_get_text_metrics_with_cache_impl</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">103</span>         <span class="n">renderer_ref</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">fontprop</span><span class="p">,</span> <span class="n">ismath</span><span class="p">,</span> <span class="n">dpi</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">104</span>     <span class="c1"># dpi is unused, but participates in cache invalidation (via the renderer).</span>
-<span class="ne">--&gt; </span><span class="mi">105</span>     <span class="k">return</span> <span class="n">renderer_ref</span><span class="p">()</span><span class="o">.</span><span class="n">get_text_width_height_descent</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">fontprop</span><span class="p">,</span> <span class="n">ismath</span><span class="p">)</span>
-
-<span class="nn">File ~/miniconda3/lib/python3.9/site-packages/matplotlib/backends/backend_agg.py:230,</span> in <span class="ni">RendererAgg.get_text_width_height_descent</span><span class="nt">(self, s, prop, ismath)</span>
-<span class="g g-Whitespace">    </span><span class="mi">226</span>     <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_text_width_height_descent</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">prop</span><span class="p">,</span> <span class="n">ismath</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">228</span> <span class="k">if</span> <span class="n">ismath</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">229</span>     <span class="n">ox</span><span class="p">,</span> <span class="n">oy</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">descent</span><span class="p">,</span> <span class="n">font_image</span> <span class="o">=</span> \
-<span class="ne">--&gt; </span><span class="mi">230</span>         <span class="bp">self</span><span class="o">.</span><span class="n">mathtext_parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dpi</span><span class="p">,</span> <span class="n">prop</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">231</span>     <span class="k">return</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">descent</span>
-<span class="g g-Whitespace">    </span><span class="mi">233</span> <span class="n">font</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prepare_font</span><span class="p">(</span><span class="n">prop</span><span class="p">)</span>
-
-<span class="nn">File ~/miniconda3/lib/python3.9/site-packages/matplotlib/mathtext.py:226,</span> in <span class="ni">MathTextParser.parse</span><span class="nt">(self, s, dpi, prop)</span>
-<span class="g g-Whitespace">    </span><span class="mi">222</span> <span class="c1"># lru_cache can&#39;t decorate parse() directly because prop</span>
-<span class="g g-Whitespace">    </span><span class="mi">223</span> <span class="c1"># is mutable; key the cache using an internal copy (see</span>
-<span class="g g-Whitespace">    </span><span class="mi">224</span> <span class="c1"># text._get_text_metrics_with_cache for a similar case).</span>
-<span class="g g-Whitespace">    </span><span class="mi">225</span> <span class="n">prop</span> <span class="o">=</span> <span class="n">prop</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="k">if</span> <span class="n">prop</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span>
-<span class="ne">--&gt; </span><span class="mi">226</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_cached</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">dpi</span><span class="p">,</span> <span class="n">prop</span><span class="p">)</span>
-
-<span class="nn">File ~/miniconda3/lib/python3.9/site-packages/matplotlib/mathtext.py:247,</span> in <span class="ni">MathTextParser._parse_cached</span><span class="nt">(self, s, dpi, prop)</span>
-<span class="g g-Whitespace">    </span><span class="mi">244</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parser</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># Cache the parser globally.</span>
-<span class="g g-Whitespace">    </span><span class="mi">245</span>     <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">_parser</span> <span class="o">=</span> <span class="n">_mathtext</span><span class="o">.</span><span class="n">Parser</span><span class="p">()</span>
-<span class="ne">--&gt; </span><span class="mi">247</span> <span class="n">box</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fontset</span><span class="p">,</span> <span class="n">fontsize</span><span class="p">,</span> <span class="n">dpi</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">248</span> <span class="n">output</span> <span class="o">=</span> <span class="n">_mathtext</span><span class="o">.</span><span class="n">ship</span><span class="p">(</span><span class="n">box</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">249</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_output_type</span> <span class="o">==</span> <span class="s2">&quot;vector&quot;</span><span class="p">:</span>
-
-<span class="nn">File ~/miniconda3/lib/python3.9/site-packages/matplotlib/_mathtext.py:1995,</span> in <span class="ni">Parser.parse</span><span class="nt">(self, s, fonts_object, fontsize, dpi)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1992</span>     <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_expression</span><span class="o">.</span><span class="n">parseString</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1993</span> <span class="k">except</span> <span class="n">ParseBaseException</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1994</span>     <span class="c1"># explain becomes a plain method on pyparsing 3 (err.explain(0)).</span>
-<span class="ne">-&gt; </span><span class="mi">1995</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">ParseException</span><span class="o">.</span><span class="n">explain</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span> <span class="kn">from</span> <span class="kc">None</span>
-<span class="g g-Whitespace">   </span><span class="mi">1996</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state_stack</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="g g-Whitespace">   </span><span class="mi">1997</span> <span class="bp">self</span><span class="o">.</span><span class="n">_in_subscript_or_superscript</span> <span class="o">=</span> <span class="kc">False</span>
-
-<span class="ne">ValueError</span>: 
-<span class="n">M_</span><span class="p">{</span>\<span class="n">text</span><span class="p">{</span><span class="n">gauss</span><span class="p">}}</span> <span class="n">q</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-   <span class="o">^</span>
-<span class="ne">ParseSyntaxException</span>: Unknown symbol: \text, found &#39;\&#39;  (at char 3), (line:1, col:4)
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 1 Axes&gt;
-</pre></div>
-</div>
+<img alt="../_images/2b7f9746cc3c89495de32031dda3b0bf6003a1b623dc30d0eb4c53b6f316b468.png" src="../_images/2b7f9746cc3c89495de32031dda3b0bf6003a1b623dc30d0eb4c53b6f316b468.png" />
 </div>
 </div>
 <p>We will now efficiently show a few things</p>
@@ -719,7 +469,7 @@ Acceptance rate for the Gaussian proposal:  0.7686
 Theoretical acceptance rate for the Gaussian proposal:  0.7692307692307692
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/d8/86whr2t12h70n511w7s7cm_w0000gn/T/ipykernel_36019/2947415207.py:17: RuntimeWarning: invalid value encountered in log
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/d8/86whr2t12h70n511w7s7cm_w0000gn/T/ipykernel_36214/2947415207.py:17: RuntimeWarning: invalid value encountered in log
   return np.log(6) + (a-1) * np.log(x) + (b-1) * np.log(1-x)
 </pre></div>
 </div>
@@ -736,7 +486,7 @@ Theoretical acceptance rate for the Gaussian proposal:  0.7692307692307692
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/be342ddf129121fd90b4d549bef16c3ead1b9db3fad4119ff5f3169b9e8c270d.png" src="../_images/be342ddf129121fd90b4d549bef16c3ead1b9db3fad4119ff5f3169b9e8c270d.png" />
+<img alt="../_images/bedd808c6f9f2c34c899a47f7bb858fea79cd8186490335cb36081292a031b7a.png" src="../_images/bedd808c6f9f2c34c899a47f7bb858fea79cd8186490335cb36081292a031b7a.png" />
 </div>
 </div>
 <p>For the Gaussian proposal, we get the following histogram.</p>
@@ -749,10 +499,10 @@ Theoretical acceptance rate for the Gaussian proposal:  0.7692307692307692
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/64ad46202822a2af7868ec78e1e6bd3fec93f7ef6d02870df3bd434b7499ff1a.png" src="../_images/64ad46202822a2af7868ec78e1e6bd3fec93f7ef6d02870df3bd434b7499ff1a.png" />
+<img alt="../_images/d4e0485455642433982237f06789b4f4588b1d23c8652967fdfc8c60360ad887.png" src="../_images/d4e0485455642433982237f06789b4f4588b1d23c8652967fdfc8c60360ad887.png" />
 </div>
 </div>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -779,11 +529,10 @@ Theoretical acceptance rate for the Gaussian proposal:  0.7692307692307692
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="exact-sampling.html"
@@ -794,10 +543,7 @@ Theoretical acceptance rate for the Gaussian proposal:  0.7692307692307692
         <p class="prev-next-title">Lecture 1 - Sampling via Inversion</p>
       </div>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -846,8 +592,8 @@ By Omer Deniz Akyildiz
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>
