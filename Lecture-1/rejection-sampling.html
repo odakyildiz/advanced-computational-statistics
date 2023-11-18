@@ -334,7 +334,7 @@ document.write(`
 <li><p>Using a Gaussian density.</p></li>
 </ul>
 <p>Uniform (box) example had <span class="math notranslate nohighlight">\(M = 1.5\)</span> whereas Gaussian had <span class="math notranslate nohighlight">\(M = 1.3\)</span>. Of course the acceptance rates are respectively <span class="math notranslate nohighlight">\(\hat{a}_{\text{box}} = 1/1.5 \approx 0.67\)</span> and <span class="math notranslate nohighlight">\(\hat{a}_{\text{Gauss}} = 1/1.3 \approx 0.76\)</span>. We will test this now numerically (by counting the ratio of accepted samples).</p>
-<p>Let us first get our basics. We will define the densities and their log-densities (as we do not want to implement the densities due to possible numerical errors). Also we will use unnormalised <span class="math notranslate nohighlight">\(\text{Beta}(2,2)\)</span> density to show the method works more generally with unnormalised densities.</p>
+<p>Let us first get our basics. We will define the densities and their log-densities (as we do not want to implement the densities due to possible numerical errors).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -471,7 +471,7 @@ Acceptance rate for the Gaussian proposal:  0.7686
 Theoretical acceptance rate for the Gaussian proposal:  0.7692307692307692
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/d8/86whr2t12h70n511w7s7cm_w0000gn/T/ipykernel_38318/2947415207.py:17: RuntimeWarning: invalid value encountered in log
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/d8/86whr2t12h70n511w7s7cm_w0000gn/T/ipykernel_39076/2947415207.py:17: RuntimeWarning: invalid value encountered in log
   return np.log(6) + (a-1) * np.log(x) + (b-1) * np.log(1-x)
 </pre></div>
 </div>
