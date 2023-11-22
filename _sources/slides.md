@@ -7,3 +7,7 @@ Please download the slides and open it with Adobe Acrobat if you want to see the
 Lecture 1 (13/11/2023): Introduction to Monte Carlo, Rejection Sampling, Importance Sampling [[PDF]](https://akyildiz.me/teaching/ltcc/Lecture-1.pdf)
 
 Lecture 2 (20/11/2023): Markov chain Monte Carlo [[PDF]](https://akyildiz.me/teaching/ltcc/Lecture-2.pdf)
+
+## Other Resources
+
+- [Visualisation of sampling algorithms](https://chi-feng.github.io/mcmc-demo/)
