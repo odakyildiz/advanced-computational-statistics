@@ -8,6 +8,8 @@ Lecture 1 (13/11/2023): Introduction to Monte Carlo, Rejection Sampling, Importa
 
 Lecture 2 (20/11/2023): Markov chain Monte Carlo [[PDF]](https://akyildiz.me/teaching/ltcc/Lecture-2.pdf)
 
+Lecture 3 (27/11/2023): Introduction to stochastic filtering, smoothing, and particle filters [[PDF]](https://akyildiz.me/teaching/ltcc/Lecture-3.pdf)
+
 ## Other Resources
 
 - [Visualisation of sampling algorithms](https://chi-feng.github.io/mcmc-demo/)
