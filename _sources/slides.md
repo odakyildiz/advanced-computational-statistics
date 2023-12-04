@@ -10,6 +10,8 @@ Lecture 2 (20/11/2023): Markov chain Monte Carlo [[PDF]](https://akyildiz.me/tea
 
 Lecture 3 (27/11/2023): Introduction to stochastic filtering, smoothing, and particle filters [[PDF]](https://akyildiz.me/teaching/ltcc/Lecture-3.pdf)
 
+Lecture 4 (04/12/2023): Particle filters and smoothers, parameter estimation in SSMs [[PDF]](https://akyildiz.me/teaching/ltcc/Lecture-4.pdf)
+
 ## Other Resources
 
 - [Visualisation of sampling algorithms](https://chi-feng.github.io/mcmc-demo/)
