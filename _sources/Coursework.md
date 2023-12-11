@@ -2,18 +2,17 @@
 
 ## Coursework option 1: particle methods
 
-1- Pick a HMM of your choice so that it is possible the state and
-observation to be multidimensional with dimensions $d_x$ and $d_y$ resp.
+1- Pick a SSM of your choice so that it is possible the state and observation to be multidimensional with dimensions $d_x$ and $d_y$ respectively.
 
 2- Using some known values for the static parameters implement the bootstrap particle filter
 
-3-  generate plots and tables to compare the two methods for varying $N$, $d_x$ and $d_y$.
+3-  generate plots and tables for varying $N$, $d_x$ and $d_y$.
 
-4- assess methods based on accuracy & variance of normalising constant and integrals like posterior (filter) mean, variance, etc.
+4- assess BPF based on accuracy (wrt true states) & variance of normalising constant and integrals like posterior (filter) mean.
 
 5- Consider a parameter estimation method of your choice (particle MCMC, gradients, nested PF...)
 
-6- implement it and describe results for varying $N$, $d_x$ and $d_y$ using plots and tables.
+6- implement it and describe results for varying $N$ (and $M$ in the nested PF case), $d_x$ and $d_y$ using plots and tables.
 
 7- In your answers provide also short comments
 
