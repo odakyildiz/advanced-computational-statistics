@@ -1,4 +1,4 @@
-# Introduction
+# Advanced Computational Methods in Stats
 
 This is a companion webpage to the LTCC course in Advanced Computational Methods in Statistics.
 
