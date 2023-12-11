@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Introduction &#8212; Stochastic Simulation</title>
+    <title>Coursework &#8212; Stochastic Simulation</title>
   
   
   
@@ -63,11 +63,14 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
-    <link rel="canonical" href="https://akyildiz.me/teaching/stsim/intro.html" />
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Coursework';</script>
+    <link rel="canonical" href="https://akyildiz.me/teaching/stsim/Coursework.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Slides" href="slides.html" />
+    <link rel="next" title="Lecture 1" href="Lecture-1/intro.html" />
+    <link rel="prev" title="Slides" href="slides.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -142,7 +145,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="intro.html">
   
   
   
@@ -161,15 +164,15 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
                     Introduction
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="slides.html">Slides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Coursework.html">Coursework</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Coursework</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="Lecture-1/intro.html">Lecture 1</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="Lecture-1/introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Lecture-1/exact-sampling.html">Sampling via Inversion</a></li>
@@ -241,7 +244,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/intro.md" target="_blank"
+      <li><a href="_sources/Coursework.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -323,7 +326,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Introduction</h1>
+    <h1>Coursework</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -333,7 +336,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coursework-option-1-particle-methods">Coursework option 1: particle methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coursework-option-2">Coursework option 2:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submission">Submission</a></li>
 </ul>
             </nav>
         </div>
@@ -345,36 +350,34 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h1>
-<p>This is a companion webpage to the LTCC course in Advanced Computational Methods in Statistics.</p>
-<p>For past year’s materials, see <a class="reference external" href="https://github.com/nkantas/LTCC-Advanced-Computational-Methods-in-Statistics">this webpage</a> as a good starting point. See <a class="reference external" href="https://akyildiz.me/stochastic-simulation">this page</a> for the resources from my undergraduate course, which is largely relevant.</p>
-<p>But we will be deviating from the past year’s materials and main resources for this year will be the slides and notebooks.</p>
-<section id="table-of-contents">
-<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this heading">#</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="slides.html">Slides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Coursework.html">Coursework</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lecture-1/intro.html">Lecture 1</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Lecture-1/introduction.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lecture-1/exact-sampling.html">Sampling via Inversion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lecture-1/rejection-sampling.html">Sampling via Rejection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lecture-1/importance-sampling.html">Importance Sampling</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Lecture-2/intro.html">Lecture 2</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Lecture-2/metropolis-hastings.html">Metropolis-Hastings algorithm</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lecture-2/unadjusted-langevin-algorithm.html">Unadjusted Langevin Algorithm</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Lecture-3/intro.html">Lecture 3</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Lecture-3/kalman-filter.html">The Kalman filter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lecture-3/particle-filter.html">The particle filter</a></li>
-</ul>
-</li>
-</ul>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="coursework">
+<h1>Coursework<a class="headerlink" href="#coursework" title="Permalink to this heading">#</a></h1>
+<section id="coursework-option-1-particle-methods">
+<h2>Coursework option 1: particle methods<a class="headerlink" href="#coursework-option-1-particle-methods" title="Permalink to this heading">#</a></h2>
+<p>1- Pick a HMM of your choice so that it is possible the state and
+observation to be multidimensional with dimensions <span class="math notranslate nohighlight">\(d_x\)</span> and <span class="math notranslate nohighlight">\(d_y\)</span> resp.</p>
+<p>2- Using some known values for the static parameters implement the bootstrap particle filter</p>
+<p>3-  generate plots and tables to compare the two methods for varying <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\(d_x\)</span> and <span class="math notranslate nohighlight">\(d_y\)</span>.</p>
+<p>4- assess methods based on accuracy &amp; variance of normalising constant and integrals like posterior (filter) mean, variance, etc.</p>
+<p>5- Consider a parameter estimation method of your choice (particle MCMC, gradients, nested PF…)</p>
+<p>6- implement it and describe results for varying <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\(d_x\)</span> and <span class="math notranslate nohighlight">\(d_y\)</span> using plots and tables.</p>
+<p>7- In your answers provide also short comments</p>
+</section>
+<section id="coursework-option-2">
+<h2>Coursework option 2:<a class="headerlink" href="#coursework-option-2" title="Permalink to this heading">#</a></h2>
+<p>If your research is related to computational statistics, or uses MCMC:</p>
+<p>1- present your model of interest and problem at hand</p>
+<p>2- the inferential method for problem (e.g. Bayesian inference, optimisation etc.) and the challenges involved,</p>
+<p>3- simulation method (e.g. MCMC, IS, SMC),</p>
+<p>4- numerical results</p>
+<p>5- a discussion on how material in this course can be used for extensions</p>
+</section>
+<section id="submission">
+<h2>Submission<a class="headerlink" href="#submission" title="Permalink to this heading">#</a></h2>
+<p>Page limit: 10 pages, recommended length around 6-8 pages, use appendices if you need to go beyond page limits</p>
+<p>Submit by email to name.surname at imperial.ac.uk</p>
+<p>Here name = deniz and surname = akyildiz</p>
+<p><strong>Coursework submission deadline:</strong> 16 January 2024</p>
 </section>
 </section>
 
@@ -408,12 +411,21 @@ document.write(`
                 <footer class="prev-next-footer">
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
-    <a class="right-next"
+    <a class="left-prev"
        href="slides.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Slides</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Lecture-1/intro.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Slides</p>
+        <p class="prev-next-title">Lecture 1</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -432,7 +444,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coursework-option-1-particle-methods">Coursework option 1: particle methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coursework-option-2">Coursework option 2:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submission">Submission</a></li>
 </ul>
   </nav></div>
 

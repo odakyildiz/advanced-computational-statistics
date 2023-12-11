@@ -12,6 +12,8 @@ Lecture 3 (27/11/2023): Introduction to stochastic filtering, smoothing, and par
 
 Lecture 4 (04/12/2023): Particle filters and smoothers, parameter estimation in SSMs [[PDF]](https://akyildiz.me/teaching/ltcc/Lecture-4.pdf)
 
+Lecture 5 (11/12/2023): Bayesian estimation in SSMs, theory of particle filters [[PDF]](https://akyildiz.me/teaching/ltcc/Lecture-5.pdf)
+
 ## Other Resources
 
 - [Visualisation of sampling algorithms](https://chi-feng.github.io/mcmc-demo/)
