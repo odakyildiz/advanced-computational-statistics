@@ -16,6 +16,8 @@ Lecture 1 (07/10/2024): Introduction to Monte Carlo, Rejection Sampling, Importa
 
 Lecture 2 (14/10/2024): Markov chain Monte Carlo [[PDF]](https://akyildiz.me/teaching/ltcc/Lecture-2.pdf)
 
+Lecture 3 (21/10/2024): Langevin Monte Carlo, Energy Based Models, Score Based Generative Models [[PDF]](https://akyildiz.me/teaching/ltcc/Lecture-3.pdf)
+
 ## Table of Contents
 
 ```{tableofcontents}
