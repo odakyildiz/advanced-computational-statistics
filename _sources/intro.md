@@ -20,6 +20,8 @@ Lecture 3 (21/10/2024): Langevin Monte Carlo, Energy Based Models, Score Based G
 
 Lecture 4 (28/10/2024): Stochastic filtering, particle filters [[PDF]](https://akyildiz.me/teaching/ltcc/Lecture-4.pdf)
 
+Lecture 5 (04/11/2024): Parameter Estimation in State-Space Models: Maximum Likelihood and Bayesian approaches [[PDF]](https://akyildiz.me/teaching/ltcc/Lecture-5.pdf)
+
 ## Table of Contents
 
 ```{tableofcontents}
